@@ -1,0 +1,99 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f8e8e8;
+    overflow: hidden;
+}
+
+.container {
+    text-align: center;
+    background: #ffffff;
+    padding: 20px 30px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    color: #ff4d6d;
+}
+
+button {
+    padding: 10px 20px;
+    margin-top: 15px;
+    font-size: 16px;
+    color: white;
+    background-color: #ff4d6d;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #ff1f4b;
+}
+
+.hidden-message {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #333;
+    display: none;
+    animation: fadeIn 1s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Falling hearts animation */
+#heart-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.heart {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background-color: #ff4d6d;
+    transform: rotate(-45deg);
+    animation: fall 5s linear infinite;
+}
+
+.heart::before, .heart::after {
+    content: '';
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background-color: #ff4d6d;
+    border-radius: 50%;
+}
+
+.heart::before {
+    top: -7.5px;
+    left: 0;
+}
+
+.heart::after {
+    top: 0;
+    left: 7.5px;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(-100vh) rotate(-45deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh) rotate(-45deg);
+        opacity: 0;
+    }
+}
